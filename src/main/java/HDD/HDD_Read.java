@@ -6,9 +6,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
-public class HDD {
+public class HDD_Read {
     String randomWord;
     static long timer=0;
     long startTimePerLine=0;

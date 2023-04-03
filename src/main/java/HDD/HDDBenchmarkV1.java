@@ -1,22 +1,20 @@
 package HDD;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 
 
-class HDDtestV1
+class HDDBenchmarkV1
 {
     public static void main(String[] args) {
 
+        ProductFileStream pf=new ProductFileStream(true);
+        pf.write("my inserted text");
+
+        pf.close();
+
         int iter=chooseIter();
 
-        HDD xD=new HDD();
+        HDD_Read xD=new HDD_Read();
 
         for(int i=0;i<iter;i++)
         {
