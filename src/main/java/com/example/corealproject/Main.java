@@ -14,6 +14,8 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 720, 420);
         stage.setTitle("Main");
         stage.setScene(scene);
+        stage.setHeight(420);
+        stage.setWidth(720);
         stage.show();
     }
 

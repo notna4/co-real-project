@@ -13,6 +13,8 @@ public class HDDPlans extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HDDPlans.class.getResource("hdd-plans.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 720, 420);
         stage.setTitle("HDD plans");
+        stage.setHeight(420);
+        stage.setWidth(720);
         stage.setScene(scene);
         stage.show();
     }

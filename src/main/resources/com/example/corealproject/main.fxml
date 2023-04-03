@@ -3,16 +3,28 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="258.0" prefWidth="528.0" spacing="20.0" stylesheets="@style-main.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.corealproject.MainController">
+<VBox alignment="CENTER" prefHeight="332.0" prefWidth="528.0" spacing="20.0" stylesheets="@style-main.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.corealproject.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label fx:id="titleMain" text="World's* best benchmarking software_"></Label>
-    <Button fx:id="nextBtn" onAction="#toHDDPlans" text="Test your HDD">
-      <font>
-         <Font name="Inter Semibold" size="12.0" />
-      </font></Button>
+   <AnchorPane prefHeight="143.0" prefWidth="306.0">
+      <children>
+      
+          <Label fx:id="titleMain" layoutX="28.0" layoutY="3.0" prefHeight="135.0" prefWidth="383.0" text="World's* best benchmarking software_" wrapText="true" />
+          <Label fx:id="subtitleMain" layoutX="22.0" layoutY="121.0" text="*world = {Laoo, Clau, Ghio, Faby, Čristean}_" wrapText="true" />
+      </children>
+   </AnchorPane>
+   <Line endX="300.0" startX="-300.0" stroke="#2f2f2f" strokeLineCap="ROUND" />
+   <AnchorPane prefHeight="113.0" prefWidth="488.0">
+      <children>
+          <Button fx:id="nextBtn" layoutX="20.0" layoutY="15.0" onAction="#toHDDPlans" text="Test your HDD">
+            <font>
+               <Font name="Inter Semibold" size="12.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
 </VBox>
