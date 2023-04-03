@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 
-class HDDBenchmarkV1
+public class HDDBenchmarkV1
 {
     public static void main(String[] args) {
 
@@ -12,8 +12,11 @@ class HDDBenchmarkV1
 
         pf.close();
 
-        int iter=chooseIter();
+//        int iter=chooseIter();
 
+    }
+
+    public static void start(int iter) {
         HDD_Read xD=new HDD_Read();
 
         for(int i=0;i<iter;i++)

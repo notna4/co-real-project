@@ -1,5 +1,22 @@
+@font-face {
+    src: url("./fonts/Inter-SemiBold.ttf");
+}
+
 .root{
     -fx-background-color: "#1E1E1E";
     -fx-font-family: "Inter SemiBold";
-    -fx-font-size: 20;
+}
+
+#titleMain {
+    -fx-font-size: 23pt;
+    -fx-text-fill: white;
+}
+
+#nextBtn {
+    -fx-font-size: 14pt;
+    -fx-cursor: hand;
+    -fx-border-color: white;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-radius: 50;
 }
