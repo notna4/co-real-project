@@ -6,10 +6,10 @@ target/
 ### IntelliJ IDEA ###
 .idea/*
 
-.out
 
+.out/
 
-.target/
+.target/*
 
 ### Eclipse ###
 .apt_generated
