@@ -8,11 +8,16 @@ class ProductFileStream {
 
     private PrintWriter writer;
 
-    public ProductFileStream()  {
+    public ProductFileStream(boolean append)  {
         try {
 //            throw new FileNotFoundException(), new UnsupportedEncodingException();
 //            writer = new PrintWriter("results.txt", "UTF-8");
+            if(append)
             this.writer= new PrintWriter(new FileOutputStream("Sample_HDD_Text.txt", true /* append = true */));
+            else
+            {
+                this.writer= new PrintWriter(new FileOutputStream("Sample_HDD_Text.txt", false /* append = true */));
+            }
         } catch (IOException err) {
             throw new RuntimeException(err);
         }

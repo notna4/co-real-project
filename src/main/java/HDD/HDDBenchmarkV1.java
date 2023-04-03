@@ -7,7 +7,7 @@ class HDDBenchmarkV1
 {
     public static void main(String[] args) {
 
-        ProductFileStream pf=new ProductFileStream();
+        ProductFileStream pf=new ProductFileStream(true);
         pf.write("my inserted text");
 
         pf.close();
