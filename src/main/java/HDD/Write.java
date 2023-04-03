@@ -12,7 +12,7 @@ class ProductFileStream {
         try {
 //            throw new FileNotFoundException(), new UnsupportedEncodingException();
 //            writer = new PrintWriter("results.txt", "UTF-8");
-            this.writer= new PrintWriter(new FileOutputStream("results.txt", true /* append = true */));
+            this.writer= new PrintWriter(new FileOutputStream("Sample_HDD_Text.txt", true /* append = true */));
         } catch (IOException err) {
             throw new RuntimeException(err);
         }
@@ -27,7 +27,7 @@ class ProductFileStream {
     }
 }
 
-public class Write {
+/*public class Write {
     public static void main(String[] args) {
 
         ProductFileStream pf=new ProductFileStream();
@@ -36,4 +36,4 @@ public class Write {
         pf.close();
 
     }
-}
+}*/
