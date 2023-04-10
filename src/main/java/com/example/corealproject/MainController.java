@@ -28,7 +28,7 @@ public class MainController {
     }
 
     public void toHDDPlans(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hdd-plans.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HDDPlans.class.getResource("hdd-plans.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 720, 340);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("HDD Plans");
