@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.*?>
 
 <VBox alignment="CENTER" prefHeight="424.0" prefWidth="718.0" spacing="20.0" stylesheets="@style-main.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.corealproject.HDDPlansController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-    <Button fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#backToMain" text="Back" />
-   <AnchorPane prefHeight="46.0" prefWidth="678.0">
-      <children>
+<!--    <padding>-->
+<!--        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />-->
+<!--    </padding>-->
+<!--    <Button fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#backToMain" text="Back" />-->
+<!--    <AnchorPane prefHeight="46.0" prefWidth="678.0">-->
+<!--        <children>-->
 
-          <Label fx:id="titleMain" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="676.0" text="Choose HDD method" />
-      </children>
-   </AnchorPane>
-   <AnchorPane prefHeight="219.0" prefWidth="420.0">
-      <children>
+<!--            <Label fx:id="titleMain" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="676.0" text="Choose HDD method" />-->
+<!--        </children>-->
+<!--    </AnchorPane>-->
+<!--    <AnchorPane prefHeight="219.0" prefWidth="420.0">-->
+<!--        <children>-->
 
-          <Button fx:id="nextBtn" alignment="TOP_LEFT" contentDisplay="CENTER" onAction="#startHDDSequential" text="Start" />
-      </children>
-   </AnchorPane>
+<!--            <Button fx:id="nextBtn" alignment="TOP_LEFT" contentDisplay="CENTER" onAction="#startHDDSequential" text="Start" />-->
+<!--        </children>-->
+<!--    </AnchorPane>-->
 </VBox>
