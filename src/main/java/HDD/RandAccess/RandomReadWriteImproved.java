@@ -173,6 +173,7 @@ public class RandomReadWriteImproved {
 
 
     // System.out.println("Total time elapsed:"+(stop2-start1) +" milliseconds");
+    //closefile
 
 
     public void closeFile()

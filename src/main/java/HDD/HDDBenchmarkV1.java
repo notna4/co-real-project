@@ -32,7 +32,6 @@ public class HDDBenchmarkV1
         System.out.println("Enter value:");
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
-       // start(num);
         return num;
     }
 

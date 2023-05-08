@@ -20,7 +20,7 @@ public class RandomReadWriteMain {
 
             username = myscan.nextLine();
 
-            //System.out.println("The username is:" + username);
+
             bench.getUsername(username);
 
         } catch (
