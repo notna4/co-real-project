@@ -1,49 +1,39 @@
 package com.example.corealproject;
 
+import javafx.animation.KeyFrame;
 import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.File;
 import java.net.MalformedURLException;
 
-import static javafx.geometry.Pos.*;
+import static javafx.geometry.Pos.CENTER;
+import static javafx.geometry.Pos.CENTER_LEFT;
 import static javafx.scene.layout.BorderPane.setAlignment;
 
-public class SequentialTest {
+public class RandomTest {
 
     public int size;
 
-    public SequentialTest(int size) {
+    public RandomTest(int size) {
         System.out.println("size: " + size);
     }
 
     public BorderPane createContent(Stage primaryStage, int size) {
 
         // Create the title text
-        Text title = new Text("Sequential Read and Write: " + size + "MB");
+        Text title = new Text("Random Read and Write: " + size + "MB");
         Font font = null;
         try {
             font = Font.loadFont(new File("src/main/java/com/example/corealproject/fonts/Inter-Bold.ttf").toURI().toURL().toExternalForm(), 30);
