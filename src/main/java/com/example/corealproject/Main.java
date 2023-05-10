@@ -80,6 +80,14 @@ public class Main extends Application {
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
 
+        Button gpuTestBtn = new Button("Test your GPU");
+        gpuTestBtn.setOnAction(e -> {
+            primaryStage.setScene(new Scene(new GPUMenu().createContent(primaryStage), 720, 420));
+
+            // Set the background color of the scene
+            primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
+        });
+
 
         Font btnFont = null;
         try {
@@ -114,8 +122,35 @@ public class Main extends Application {
         testButton.setPadding(new Insets(10));
         testButton.setStyle("-fx-border-color: '#383838'; -fx-border-width: 2px; -fx-border-radius: 50; -fx-cursor: hand; -fx-text-fill: white");
 
+        // -----
+        gpuTestBtn.setFont(btnFont);
+
+        gpuTestBtn.setOnMouseEntered(e -> {
+            // Animate the button when the mouse enters
+            ScaleTransition st = new ScaleTransition(Duration.millis(200), gpuTestBtn);
+            st.setToX(1.1);
+//            testButton.setBackground(Background.fill(Color.WHITE));
+            gpuTestBtn.setStyle("-fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 50; -fx-cursor: hand; -fx-text-fill: white");
+            st.setToY(1.1);
+            st.play();
+        });
+        gpuTestBtn.setOnMouseExited(e -> {
+            // Animate the button when the mouse exits
+            ScaleTransition st = new ScaleTransition(Duration.millis(200), gpuTestBtn);
+            st.setToX(1.0);
+            gpuTestBtn.setBackground(Background.fill(Color.TRANSPARENT));
+            gpuTestBtn.setStyle("-fx-border-color: '#383838'; -fx-border-width: 2px; -fx-border-radius: 50; -fx-cursor: hand; -fx-text-fill: white");
+            st.setToY(1.0);
+            st.play();
+        });
+
+        gpuTestBtn.setBackground(Background.fill(Color.TRANSPARENT));
+        gpuTestBtn.setPadding(new Insets(10));
+        gpuTestBtn.setStyle("-fx-border-color: '#383838'; -fx-border-width: 2px; -fx-border-radius: 50; -fx-cursor: hand; -fx-text-fill: white");
+
+
         // Create the layout
-        VBox vbox = new VBox(title, subtitle, testButton);
+        VBox vbox = new VBox(title, subtitle, testButton, gpuTestBtn);
 //        vbox.setStyle("-fx-text-fill: white");
         vbox.setAlignment(Pos.CENTER_LEFT);
         vbox.setSpacing(20);

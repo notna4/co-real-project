@@ -219,6 +219,12 @@ public class HDDPlans {
         topPart2.setSpacing(15);
 
         Button rndButton = new Button("Random Access");
+        rndButton.setOnAction(e -> {
+            primaryStage.setScene(new Scene(new RandomMenu().createContent(primaryStage), 720, 420));
+
+            // Set the background color of the scene
+            primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
+        });
         rndButton.setFont(btnFont);
         rndButton.setOnMouseEntered(e -> {
             // Animate the button when the mouse enters
