@@ -10,6 +10,8 @@ public class HDDBenchmarkV1
         ProductFileStream pf=new ProductFileStream(true);
         pf.write("my inserted text");
 
+        start(50);
+
         pf.close();
 
 //        int iter=chooseIter();

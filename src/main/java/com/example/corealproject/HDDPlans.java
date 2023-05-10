@@ -92,6 +92,14 @@ public class HDDPlans {
         }
 
         Button sequentialButton = new Button("Sequential");
+
+        sequentialButton.setOnAction(e -> {
+            primaryStage.setScene(new Scene(new SequentialMenu().createContent(primaryStage), 720, 420));
+
+            // Set the background color of the scene
+            primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
+        });
+
         sequentialButton.setFont(btnFont);
         sequentialButton.setOnMouseEntered(e -> {
             // Animate the button when the mouse enters
@@ -150,7 +158,7 @@ public class HDDPlans {
             ScaleTransition st = new ScaleTransition(Duration.millis(200), backButton);
             st.setToX(1.1);
 //            testButton.setBackground(Background.fill(Color.WHITE));
-            backButton.setStyle("-fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 50; -fx-cursor: hand; -fx-text-fill: white");
+            backButton.setStyle("-fx-background-radius: 50; -fx-cursor: hand; -fx-text-fill: white; -fx-background-color: '#383838'");
             st.setToY(1.1);
             st.play();
         });
@@ -159,14 +167,14 @@ public class HDDPlans {
             ScaleTransition st = new ScaleTransition(Duration.millis(200), backButton);
             st.setToX(1.0);
             backButton.setBackground(Background.fill(Color.TRANSPARENT));
-            backButton.setStyle("-fx-border-color: '#383838'; -fx-border-width: 2px; -fx-border-radius: 50; -fx-cursor: hand; -fx-text-fill: white");
+            backButton.setStyle("-fx-background-radius: 50; -fx-cursor: hand; -fx-text-fill: '#1e1e1e'; -fx-background-color: white");
             st.setToY(1.0);
             st.play();
         });
 
-        backButton.setBackground(Background.fill(Color.TRANSPARENT));
+        backButton.setBackground(Background.fill(Color.WHITE));
         backButton.setPadding(new Insets(10));
-        backButton.setStyle("-fx-border-color: '#383838'; -fx-border-width: 2px; -fx-border-radius: 50; -fx-cursor: hand; -fx-text-fill: white");
+        backButton.setStyle("-fx-background-radius: 50; -fx-cursor: hand; -fx-text-fill: '#1e1e1e'; -fx-background-color: white");
 
 
         // Create the "Most popular" section
