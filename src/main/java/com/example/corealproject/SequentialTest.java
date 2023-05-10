@@ -104,6 +104,7 @@ public class SequentialTest {
         // Create the layout
         HBox columns = new HBox(backButton);
         columns.setSpacing(20);
+
         columns.setAlignment(CENTER);
         BorderPane root = new BorderPane(columns);
         root.setPadding(new Insets(20));
