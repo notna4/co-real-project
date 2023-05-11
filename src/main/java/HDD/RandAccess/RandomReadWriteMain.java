@@ -4,6 +4,25 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RandomReadWriteMain {
+
+    public double startRandomReadWrite(String nameText, int size) {
+        //i use this method in javafx - cristean
+        RandomReadWriteImproved bench =new RandomReadWriteImproved();
+
+        String filePath = "Sample_HDD_Text_Dummy.txt";
+
+        bench.setFilePath(filePath);
+        bench.setSize(size);
+        bench.createFile();
+        bench.randomWrite();
+        bench.randomRead();
+        bench.randomRead2();
+        bench.getScore();
+        bench.postScore(nameText, size);
+        bench.closeFile();
+
+        return bench.getScore();
+    }
     public static void main(String[] args) {
         RandomReadWriteImproved bench =new RandomReadWriteImproved();
 
@@ -30,15 +49,15 @@ public class RandomReadWriteMain {
 
         String filePath = "Sample_HDD_Text_Dummy.txt";
 
-        bench.setFilePath(filePath);
-        bench.setSize();
-        bench.createFile();
-        bench.randomWrite();
-        bench.randomRead();
-        bench.randomRead2();
-        bench.getScore();
-        bench.postScore();
-        bench.closeFile();
+//        bench.setFilePath(filePath);
+//        bench.setSize();
+//        bench.createFile();
+//        bench.randomWrite();
+//        bench.randomRead();
+//        bench.randomRead2();
+//        bench.getScore();
+//        bench.postScore();
+//        bench.closeFile();
 
     }
 }

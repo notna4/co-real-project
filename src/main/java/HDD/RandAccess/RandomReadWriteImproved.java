@@ -5,12 +5,16 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class RandomReadWriteImproved {
     public File file;
+
+    private static final String FILE_NAME = "ScoreHistoryHDDRandom.txt";
 
     private String username;
 
@@ -34,6 +38,12 @@ public class RandomReadWriteImproved {
     public void setFilePath(String filePath)
     {
         this.filePath = filePath;
+    }
+
+    public void setSize(int size) {
+
+        fileSize = 1024 * 1024 * size;
+
     }
 
 
@@ -151,17 +161,28 @@ public class RandomReadWriteImproved {
 
     }
 
-    public void getScore()
+    public double getScore()
     {
-        score= ((double)(1/(TimeRead2*100/TimeRead1))*fileSize) +(int)TimeRead1; //Still WOIP
-        System.out.println("The score is:"+score);
+//        score= ((double)(1/(TimeRead2*100/TimeRead1))*fileSize) +(int)TimeRead1; //Still WOIP - cristean: primesc exceptie cu "/ by zero" de fiecare data
+        score = TimeRead2 + TimeRead1 + fileSize;
+//        System.out.println("The score is:"+score);
+        return score;
     }
 
-    public void postScore()
+    public void postScore(String nameText, int size)
     {
+
         try {
-            FileWriter text = new FileWriter("ScoreHistoryHDDRandom.txt",true);
-            text.write(username+" : "+"score:"+score + "\n");
+            FileWriter text = new FileWriter(FILE_NAME,true);
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedTime = now.format(formatter);
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+                writer.write(nameText+ "," + formattedTime + "," + score+","+size+"\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+//            text.write(username+" : "+"score:"+score + "\n");
             text.close();
             System.out.println("Score posted!");
         } catch (IOException e) {

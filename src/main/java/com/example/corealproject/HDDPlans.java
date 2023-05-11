@@ -22,10 +22,11 @@ import static javafx.geometry.Pos.*;
 
 public class HDDPlans {
 
-    public BorderPane createContent(Stage primaryStage) {
+    public BorderPane createContent(Stage primaryStage, String nameText) {
+        System.out.println(nameText);
 
         // Create the title text
-        Text title = new Text("Choose HDD method");
+        Text title = new Text("Choose HDD method, " + nameText);
         Font font = null;
         try {
             font = Font.loadFont(new File("src/main/java/com/example/corealproject/fonts/Inter-Bold.ttf").toURI().toURL().toExternalForm(), 30);
@@ -94,7 +95,7 @@ public class HDDPlans {
         Button sequentialButton = new Button("Sequential");
 
         sequentialButton.setOnAction(e -> {
-            primaryStage.setScene(new Scene(new SequentialMenu().createContent(primaryStage), 720, 420));
+            primaryStage.setScene(new Scene(new SequentialMenu().createContent(primaryStage, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
@@ -220,7 +221,7 @@ public class HDDPlans {
 
         Button rndButton = new Button("Random Access");
         rndButton.setOnAction(e -> {
-            primaryStage.setScene(new Scene(new RandomMenu().createContent(primaryStage), 720, 420));
+            primaryStage.setScene(new Scene(new RandomMenu().createContent(primaryStage, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");

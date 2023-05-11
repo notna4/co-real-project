@@ -1,5 +1,7 @@
 package com.example.corealproject;
 
+import HDD.RandAccess.RandomReadWriteImproved;
+import HDD.RandAccess.RandomReadWriteMain;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -40,7 +42,7 @@ public class SequentialTest {
         System.out.println("size: " + size);
     }
 
-    public BorderPane createContent(Stage primaryStage, int size) {
+    public BorderPane createContent(Stage primaryStage, int size, String nameText) {
 
         // Create the title text
         Text title = new Text("Sequential Read and Write: " + size + "MB");
@@ -72,15 +74,15 @@ public class SequentialTest {
         // Create the Back button
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage), 720, 420));
+            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
 
-        Text results = new Text("Results will appear here");
+        Text results = new Text("Results will appear here.");
         results.setFont(tagFont);
-        results.setFill(Color.TRANSPARENT);
+        results.setFill(Color.WHITE);
 
 
         // Create the Start button
@@ -91,14 +93,20 @@ public class SequentialTest {
             startButton.setDisable(true);
             backButton.setDisable(true);
             startButton.setText("Computing..");
+            RandomReadWriteImproved score = new RandomReadWriteImproved();
+            RandomReadWriteMain start = new RandomReadWriteMain();
+            double scor = start.startRandomReadWrite(nameText, size);
+            System.out.println(scor);
+            results.setText(String.valueOf(scor));
+
 
             // Wait for 3 seconds and show the button again
             Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.seconds(10), event -> {
+                    new KeyFrame(Duration.seconds(2), event -> {
                         startButton.setDisable(false);
                         backButton.setDisable(false);
                         startButton.setText("Start again");
-                        results.setFill(Color.WHITE);
+
                     })
             );
             timeline.play();

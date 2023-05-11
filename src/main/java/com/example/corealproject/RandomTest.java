@@ -30,7 +30,7 @@ public class RandomTest {
         System.out.println("size: " + size);
     }
 
-    public BorderPane createContent(Stage primaryStage, int size) {
+    public BorderPane createContent(Stage primaryStage, int size, String nameText) {
 
         // Create the title text
         Text title = new Text("Random Read and Write: " + size + "MB");
@@ -62,7 +62,7 @@ public class RandomTest {
         // Create the Back button
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage), 720, 420));
+            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");

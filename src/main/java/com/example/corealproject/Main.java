@@ -6,6 +6,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -20,9 +22,11 @@ import java.io.File;
 import java.net.MalformedURLException;
 
 public class Main extends Application {
+    public String nameText;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
 
         // Create the layout
         StackPane root = createContent(primaryStage);
@@ -60,7 +64,7 @@ public class Main extends Application {
         // Create the "Test your HDD" button
         Button testButton = new Button("Test your HDD");
         testButton.setOnAction(e -> {
-            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage), 720, 420));
+            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
@@ -134,9 +138,30 @@ public class Main extends Application {
         gpuTestBtn.setPadding(new Insets(10));
         gpuTestBtn.setStyle("-fx-border-color: '#383838'; -fx-border-width: 2px; -fx-border-radius: 50; -fx-cursor: hand; -fx-text-fill: white");
 
+        TextField textField = new TextField();
+        textField.setPromptText("Enter your name");
+        textField.setStyle("-fx-prompt-text-fill: #999999; -fx-font-style: italic; -fx-max-width: 200; -fx-border-color: '#383838'; -fx-font-size: 20; -fx-border-width: 2px; -fx-border-radius: 50; -fx-text-fill: white; -fx-background-color: TRANSPARENT");
+        testButton.setDisable(true);
+        gpuTestBtn.setDisable(true);
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            nameText = textField.getText();
+            if (newValue.isEmpty()) {
+                // Set the border color to red if the TextField is empty
+                testButton.setDisable(true);
+                gpuTestBtn.setDisable(true);
+                textField.setStyle("-fx-prompt-text-fill: #999999; -fx-font-style: italic; -fx-max-width: 200; -fx-border-color: '#383838'; -fx-font-size: 20; -fx-border-width: 2px; -fx-border-radius: 50; -fx-text-fill: white; -fx-background-color: TRANSPARENT");
+            } else {
+                // Set the border color to green if the TextField has at least one character
+                testButton.setDisable(false);
+                gpuTestBtn.setDisable(false);
+                textField.setStyle("-fx-prompt-text-fill: #999999; -fx-font-style: italic; -fx-max-width: 200; -fx-border-color: green; -fx-font-size: 20; -fx-border-width: 2px; -fx-border-radius: 50; -fx-text-fill: white; -fx-background-color: TRANSPARENT");
+
+            }
+        });
+
 
         // Create the layout
-        VBox vbox = new VBox(title, testButton, gpuTestBtn);
+        VBox vbox = new VBox(title, textField, testButton, gpuTestBtn);
 //        vbox.setStyle("-fx-text-fill: white");
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(20);

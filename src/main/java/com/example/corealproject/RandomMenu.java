@@ -22,7 +22,7 @@ import static javafx.geometry.Pos.CENTER;
 import static javafx.geometry.Pos.CENTER_LEFT;
 
 public class RandomMenu {
-    public BorderPane createContent(Stage primaryStage) {
+    public BorderPane createContent(Stage primaryStage, String nameText) {
 
         // Create the title text
         Text title = new Text("Random Read and Write");
@@ -65,7 +65,7 @@ public class RandomMenu {
         Button suta = new Button("124MB");
         suta.setOnAction(e -> {
             //start sequential testbench using 100MB
-            primaryStage.setScene(new Scene(new RandomTest(124).createContent(primaryStage, 124), 720, 420));
+            primaryStage.setScene(new Scene(new RandomTest(124).createContent(primaryStage, 124, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
@@ -113,7 +113,7 @@ public class RandomMenu {
 //        Button omie = new Button("1GB");
         cincisute.setOnAction(e -> {
             //start sequential testbench using 500MB
-            primaryStage.setScene(new Scene(new RandomTest(512).createContent(primaryStage, 512), 720, 420));
+            primaryStage.setScene(new Scene(new RandomTest(512).createContent(primaryStage, 512, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
@@ -190,7 +190,7 @@ public class RandomMenu {
         omie.setTextAlignment(TextAlignment.CENTER);
         omie.setOnAction(e -> {
             //start sequential testbench using 1gb
-            primaryStage.setScene(new Scene(new RandomTest(1024).createContent(primaryStage, 1024), 720, 420));
+            primaryStage.setScene(new Scene(new RandomTest(1024).createContent(primaryStage, 1024, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
@@ -210,7 +210,7 @@ public class RandomMenu {
         // Create the Back button
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage), 720, 420));
+            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
