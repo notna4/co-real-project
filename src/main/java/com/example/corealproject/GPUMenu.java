@@ -210,7 +210,7 @@ public class GPUMenu {
         // Create the Back button
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage), 720, 420));
+            primaryStage.setScene(new Scene(new Main().createContent(primaryStage), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");

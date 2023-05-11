@@ -32,7 +32,7 @@ public class Main extends Application {
         Scene scene = new Scene(root, 720, 420);
 
         // Set the scene on the primary stage and show it
-        primaryStage.setTitle("Benchmarking Software");
+        primaryStage.setTitle("CO Gaming");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -52,24 +52,10 @@ public class Main extends Application {
             throw new RuntimeException(e);
         }
 //        System.out.println(font.getFamily());
-        Text title = new Text("World's* best benchmarking software");
+        Text title = new Text("CO Gaming Bench");
         title.setFont(font);
         title.setFill(Color.WHITE);
 
-
-        // Create the subtitle text
-        //Segoe UI Semibold
-        Text subtitle = new Text("*world meaning our team");
-        Font subFont = null;
-        try {
-            subFont = Font.loadFont(new File("src/main/java/com/example/corealproject/fonts/Inter-SemiBold.ttf").toURI().toURL().toExternalForm(), 25);
-//            System.out.println(font);
-        } catch (MalformedURLException e) {
-//            System.out.println("aici");
-            throw new RuntimeException(e);
-        }
-        subtitle.setFont(subFont);
-        subtitle.setFill(Color.GREEN);
 
         // Create the "Test your HDD" button
         Button testButton = new Button("Test your HDD");
@@ -150,9 +136,9 @@ public class Main extends Application {
 
 
         // Create the layout
-        VBox vbox = new VBox(title, subtitle, testButton, gpuTestBtn);
+        VBox vbox = new VBox(title, testButton, gpuTestBtn);
 //        vbox.setStyle("-fx-text-fill: white");
-        vbox.setAlignment(Pos.CENTER_LEFT);
+        vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(20);
         BorderPane borderPane = new BorderPane(vbox);
         //Initialising path of the media file, replace this with your file path
@@ -169,12 +155,13 @@ public class Main extends Application {
 
         //by setting this property to true, the Video will be played
         mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
-//        StackPane root = new StackPane(mediaView);
+        StackPane root = new StackPane(mediaView);
 
         //setting group and scene
-//        root.getChildren().add(borderPane);
-        StackPane root = new StackPane(borderPane);
+        root.getChildren().add(borderPane);
+//        StackPane root = new StackPane(borderPane);
         root.setPadding(new Insets(20));
 
         return root;
