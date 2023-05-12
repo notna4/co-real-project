@@ -89,18 +89,18 @@ public class SequentialTest {
         Button startButton = new Button("Start");
         startButton.setOnAction(e -> {
 //            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage), 720, 420));
-            System.out.println("startttt");
+//            System.out.println("startttt");
             startButton.setDisable(true);
             backButton.setDisable(true);
             startButton.setText("Computing..");
             RandomReadWriteImproved score = new RandomReadWriteImproved();
             RandomReadWriteMain start = new RandomReadWriteMain();
-            double scor = start.startRandomReadWrite(nameText, size);
+            double scor = start.startRandomReadWrite(nameText, size, "HDD - Seq");
             System.out.println(scor);
             results.setText(String.valueOf(scor));
 
 
-            // Wait for 3 seconds and show the button again
+            // Wait for 2 seconds and show the button again
             Timeline timeline = new Timeline(
                     new KeyFrame(Duration.seconds(2), event -> {
                         startButton.setDisable(false);

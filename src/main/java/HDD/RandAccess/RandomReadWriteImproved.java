@@ -169,7 +169,7 @@ public class RandomReadWriteImproved {
         return score;
     }
 
-    public void postScore(String nameText, int size)
+    public void postScore(String nameText, int size, String category)
     {
 
         try {
@@ -178,7 +178,7 @@ public class RandomReadWriteImproved {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String formattedTime = now.format(formatter);
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-                writer.write(nameText+ "," + formattedTime + "," + score+","+size+"\n");
+                writer.write(category + "," + nameText+ "," + formattedTime + "," + score+","+size+"\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
