@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class RandomReadWriteMain {
 
-    public double startRandomReadWrite(String nameText, int size) {
+    public double startRandomReadWrite(String nameText, int size, String category) {
         //i use this method in javafx - cristean
         RandomReadWriteImproved bench =new RandomReadWriteImproved();
 
@@ -18,7 +18,7 @@ public class RandomReadWriteMain {
         bench.randomRead();
         bench.randomRead2();
         bench.getScore();
-        bench.postScore(nameText, size);
+        bench.postScore(nameText, size, category);
         bench.closeFile();
 
         return bench.getScore();

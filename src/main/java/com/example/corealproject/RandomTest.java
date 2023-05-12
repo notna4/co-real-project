@@ -1,5 +1,7 @@
 package com.example.corealproject;
 
+import HDD.RandAccess.RandomReadWriteImproved;
+import HDD.RandAccess.RandomReadWriteMain;
 import javafx.animation.KeyFrame;
 import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
@@ -68,27 +70,38 @@ public class RandomTest {
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
 
-        Text results = new Text("Results will appear here");
+        Text results = new Text("Results will appear here.");
         results.setFont(tagFont);
-        results.setFill(Color.TRANSPARENT);
+        results.setFill(Color.WHITE);
 
 
         // Create the Start button
         Button startButton = new Button("Start");
         startButton.setOnAction(e -> {
 //            primaryStage.setScene(new Scene(new HDDPlans().createContent(primaryStage), 720, 420));
-            System.out.println("startttt");
+//            System.out.println("startttt");
             startButton.setDisable(true);
             backButton.setDisable(true);
-            startButton.setText("Computing..");
+            Timeline timeline1 = new Timeline(
+                    new KeyFrame(Duration.seconds(1), event -> {
+                        startButton.setDisable(false);
+                        backButton.setDisable(false);
+                        startButton.setText("Computing..");
+                    })
+            );
+            timeline1.play();
+            RandomReadWriteImproved score = new RandomReadWriteImproved();
+            RandomReadWriteMain start = new RandomReadWriteMain();
+            double scor = start.startRandomReadWrite(nameText, size, "HDD - Rnd");
+            System.out.println(scor);
+            results.setText(String.valueOf(scor));
 
-            // Wait for 3 seconds and show the button again
+            // Wait for 2 seconds and show the button again
             Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.seconds(10), event -> {
+                    new KeyFrame(Duration.seconds(2), event -> {
                         startButton.setDisable(false);
                         backButton.setDisable(false);
                         startButton.setText("Start again");
-                        results.setFill(Color.WHITE);
                     })
             );
             timeline.play();
