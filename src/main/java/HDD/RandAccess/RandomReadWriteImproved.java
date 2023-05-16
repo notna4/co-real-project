@@ -115,7 +115,8 @@ public class RandomReadWriteImproved {
     }
 
     public void randomRead() {
-        long start = System.currentTimeMillis();
+//        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
         try {
 
@@ -134,7 +135,8 @@ public class RandomReadWriteImproved {
             System.out.println("Cannot read from the file!");
         }
 
-        long stop = System.currentTimeMillis();
+//        long stop = System.currentTimeMillis();
+        long stop = System.nanoTime();
         System.out.println("Time elapsed for reading:" + (stop - start) + " milliseconds");
         TimeRead1=stop-start;
     }
@@ -164,7 +166,7 @@ public class RandomReadWriteImproved {
     public double getScore()
     {
 //        score= ((double)(1/(TimeRead2*100/TimeRead1))*fileSize) +(int)TimeRead1; //Still WOIP - cristean: primesc exceptie cu "/ by zero" de fiecare data
-        score = TimeRead2 + TimeRead1 + fileSize;
+        score =  TimeRead1 + fileSize;
 //        System.out.println("The score is:"+score);
         return score;
     }
