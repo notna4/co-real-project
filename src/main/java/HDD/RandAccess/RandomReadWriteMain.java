@@ -11,6 +11,7 @@ public class RandomReadWriteMain {
 
         String filePath = "Sample_HDD_Text_Dummy.txt";
 
+        //dont change the order!! - laoo
         bench.setFilePath(filePath);
         bench.setSize(size);
         bench.createFile();

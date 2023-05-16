@@ -137,7 +137,7 @@ public class RandomReadWriteImproved {
 
 //        long stop = System.currentTimeMillis();
         long stop = System.nanoTime();
-        System.out.println("Time elapsed for reading:" + (stop - start) + " milliseconds");
+        System.out.println("Time elapsed for reading:" + (stop - start) + " nanoseconds");
         TimeRead1=stop-start;
     }
 
@@ -170,6 +170,15 @@ public class RandomReadWriteImproved {
 //        System.out.println("The score is:"+score);
         return score;
     }
+
+    public long getRead() {
+        return TimeRead1;
+    }
+
+    public long getWrite() {
+        return TimeWrite;
+    }
+
 
     public void postScore(String nameText, int size, String category)
     {
