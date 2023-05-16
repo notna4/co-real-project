@@ -16,7 +16,7 @@ public class RandomReadWriteMain {
         bench.createFile();
         bench.randomWrite();
         bench.randomRead();
-        bench.randomRead2();
+//        bench.randomRead2();
         bench.getScore();
         bench.postScore(nameText, size, category);
         bench.closeFile();
