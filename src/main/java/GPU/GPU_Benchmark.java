@@ -16,7 +16,7 @@ public class GPU_Benchmark {
     {
         try {
             //used to run a python executable
-            ProcessBuilder pb = new ProcessBuilder("./test2", choice);
+            ProcessBuilder pb = new ProcessBuilder("./piton", choice);
             pb.directory(new File(System.getProperty("user.dir")));
 
             Process process = pb.start();
