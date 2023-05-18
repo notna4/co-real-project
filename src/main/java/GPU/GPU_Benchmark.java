@@ -44,7 +44,7 @@ public class GPU_Benchmark {
             System.out.println("Any linux distro is supported.");
         }
     }
-    public static void main(String args[]){
+    public static void main(String[] args){
         GPU_Benchmark benchmark = new GPU_Benchmark();
         benchmark.gpuBench("1");
     }
