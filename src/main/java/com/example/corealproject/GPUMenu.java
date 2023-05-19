@@ -1,5 +1,6 @@
 package com.example.corealproject;
 
+import GPU.GPU_Benchmark;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -61,12 +62,13 @@ public class GPUMenu {
         }
 
 
+        GPU_Benchmark gpu = new GPU_Benchmark();
 //        Text suta = new Text("100MB");
-        Button suta = new Button("124MB");
+        Button suta = new Button("Easy");
         suta.setOnAction(e -> {
             //start sequential testbench using 100MB
 //            primaryStage.setScene(new Scene(new RandomTest(124).createContent(primaryStage, 124, nameTest), 720, 420));
-
+            gpu.gpuBench("easy");
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
@@ -109,12 +111,12 @@ public class GPUMenu {
 
 
 
-        Button cincisute = new Button("512MB");
+        Button cincisute = new Button("Normal");
 //        Button omie = new Button("1GB");
         cincisute.setOnAction(e -> {
             //start sequential testbench using 500MB
 //            primaryStage.setScene(new Scene(new RandomTest(512).createContent(primaryStage, 512, nameText), 720, 420));
-
+            gpu.gpuBench("normal");
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
@@ -162,7 +164,7 @@ public class GPUMenu {
 
 //        Button mieBtn = new Button("Start 1GB");
 
-        Button omie = new Button("1GB");
+        Button omie = new Button("Hard");
 
         omie.setOnMouseEntered(e -> {
             // Animate the button when the mouse enters
@@ -191,7 +193,7 @@ public class GPUMenu {
         omie.setOnAction(e -> {
             //start sequential testbench using 1gb
 //            primaryStage.setScene(new Scene(new RandomTest(1024).createContent(primaryStage, 1024, nameText), 720, 420));
-
+            gpu.gpuBench("hard");
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
