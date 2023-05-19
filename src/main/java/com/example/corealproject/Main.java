@@ -251,7 +251,7 @@ public class Main extends Application {
             //Instantiating Media class
 //            Media media = new Media(new File(path).toURI().toString());
 
-            Media media = new Media(new File("file:///home/cristicanceal/IdeaProjects/co-real-project/src/main/java/com/example/corealproject/bg.mp4").toURI().toString());
+//            Media media = new Media(new File("file:///home/cristicanceal/IdeaProjects/co-real-project/src/main/java/com/example/corealproject/bg.mp4").toURI().toString());
 
             //Instantiating MediaPlayer class
 //            MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -302,10 +302,10 @@ public class Main extends Application {
 //        mediaPlayer.setAutoPlay(true);
 //        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
-        StackPane root = new StackPane();
+        StackPane root = new StackPane(borderPane);
 
         //setting group and scene
-        root.getChildren().add(borderPane);
+//        root.getChildren().add(borderPane);
 //        StackPane root = new StackPane(borderPane);
         root.setPadding(new Insets(20));
 
