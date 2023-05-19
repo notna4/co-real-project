@@ -23,10 +23,10 @@ import static javafx.geometry.Pos.CENTER;
 import static javafx.geometry.Pos.CENTER_LEFT;
 
 public class GPUMenu {
-    public BorderPane createContent(Stage primaryStage) {
+    public BorderPane createContent(Stage primaryStage, String nameText) {
 
         // Create the title text
-        Text title = new Text("GPU");
+        Text title = new Text("Choose your GPU method, " + nameText + "!");
         Font font = null;
         try {
             font = Font.loadFont(new File("src/main/java/com/example/corealproject/fonts/Inter-Bold.ttf").toURI().toURL().toExternalForm(), 30);
@@ -62,13 +62,11 @@ public class GPUMenu {
         }
 
 
-        GPU_Benchmark gpu = new GPU_Benchmark();
-//        Text suta = new Text("100MB");
+//        GPU_Benchmark gpu = new GPU_Benchmark();
         Button suta = new Button("Easy");
         suta.setOnAction(e -> {
-            //start sequential testbench using 100MB
-//            primaryStage.setScene(new Scene(new RandomTest(124).createContent(primaryStage, 124, nameTest), 720, 420));
-            gpu.gpuBench("easy");
+            primaryStage.setScene(new Scene(new GPUTest(1).createContent(primaryStage, 1, nameText), 720, 420));
+
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
@@ -115,8 +113,8 @@ public class GPUMenu {
 //        Button omie = new Button("1GB");
         cincisute.setOnAction(e -> {
             //start sequential testbench using 500MB
-//            primaryStage.setScene(new Scene(new RandomTest(512).createContent(primaryStage, 512, nameText), 720, 420));
-            gpu.gpuBench("normal");
+            primaryStage.setScene(new Scene(new GPUTest(3).createContent(primaryStage, 3, nameText), 720, 420));
+//            gpu.gpuBench("2");
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
@@ -192,8 +190,8 @@ public class GPUMenu {
         omie.setTextAlignment(TextAlignment.CENTER);
         omie.setOnAction(e -> {
             //start sequential testbench using 1gb
-//            primaryStage.setScene(new Scene(new RandomTest(1024).createContent(primaryStage, 1024, nameText), 720, 420));
-            gpu.gpuBench("hard");
+            primaryStage.setScene(new Scene(new GPUTest(3).createContent(primaryStage, 3, nameText), 720, 420));
+//            gpu.gpuBench("3");
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
