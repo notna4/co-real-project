@@ -83,7 +83,7 @@ public class Main extends Application {
 
         Button gpuTestBtn = new Button("Test your GPU");
         gpuTestBtn.setOnAction(e -> {
-            primaryStage.setScene(new Scene(new GPUMenu().createContent(primaryStage), 720, 420));
+            primaryStage.setScene(new Scene(new GPUMenu().createContent(primaryStage, nameText), 720, 420));
 
             // Set the background color of the scene
             primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
@@ -249,19 +249,21 @@ public class Main extends Application {
             String path = "src/main/java/com/example/corealproject/bg.mp4";
 
             //Instantiating Media class
-            Media media = new Media(new File(path).toURI().toString());
+//            Media media = new Media(new File(path).toURI().toString());
+
+            Media media = new Media(new File("file:///home/cristicanceal/IdeaProjects/co-real-project/src/main/java/com/example/corealproject/bg.mp4").toURI().toString());
 
             //Instantiating MediaPlayer class
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
+//            MediaPlayer mediaPlayer = new MediaPlayer(media);
 
             //Instantiating MediaView class
-            MediaView mediaView = new MediaView(mediaPlayer);
+//            MediaView mediaView = new MediaView(mediaPlayer);
 
             //by setting this property to true, the Video will be played
-            mediaPlayer.setAutoPlay(true);
-            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+//            mediaPlayer.setAutoPlay(true);
+//            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
-            StackPane root = new StackPane(mediaView, header, subHeader, scrollPane);
+            StackPane root = new StackPane(header, subHeader, scrollPane);
 
             //setting group and scene
 //            root.getChildren().add(borderPane);
@@ -287,19 +289,20 @@ public class Main extends Application {
         String path = "src/main/java/com/example/corealproject/bg.mp4";
 
         //Instantiating Media class
-        Media media = new Media(new File(path).toURI().toString());
+//        Media media = new Media(new File(path).toURI().toString());
+//        Media media = new Media(new File("file:///home/cristicanceal/IdeaProjects/co-real-project/src/main/java/com/example/corealproject/bg.mp4").toURI().toString());
 
         //Instantiating MediaPlayer class
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
+//        MediaPlayer mediaPlayer = new MediaPlayer(media);
 
         //Instantiating MediaView class
-        MediaView mediaView = new MediaView(mediaPlayer);
+//        MediaView mediaView = new MediaView(mediaPlayer);
 
         //by setting this property to true, the Video will be played
-        mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+//        mediaPlayer.setAutoPlay(true);
+//        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
-        StackPane root = new StackPane(mediaView);
+        StackPane root = new StackPane();
 
         //setting group and scene
         root.getChildren().add(borderPane);

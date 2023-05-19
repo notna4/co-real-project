@@ -26,7 +26,7 @@ public class HDDPlans {
         System.out.println(nameText);
 
         // Create the title text
-        Text title = new Text("Choose HDD method, " + nameText);
+        Text title = new Text("Choose HDD method, " + nameText + "!");
         Font font = null;
         try {
             font = Font.loadFont(new File("src/main/java/com/example/corealproject/fonts/Inter-Bold.ttf").toURI().toURL().toExternalForm(), 30);

@@ -12,7 +12,7 @@
     </padding>
    <AnchorPane prefHeight="143.0" prefWidth="306.0">
       <children>
-      
+
           <Label fx:id="titleMain" layoutX="28.0" layoutY="3.0" prefHeight="135.0" prefWidth="383.0" text="World's* best benchmarking software_" wrapText="true" />
           <Label fx:id="subtitleMain" layoutX="22.0" layoutY="121.0" text="*world = {Laoo, Clau, Ghio, Faby, Čristean}_" wrapText="true" />
       </children>
