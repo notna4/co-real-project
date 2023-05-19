@@ -36,7 +36,7 @@ public class GPU_Benchmark {
             if (exitVal == 0) {
                 System.out.println("**************************** The Output is ******************************");
                 System.out.println(output);
-                System.exit(0);
+//                System.exit(0);
             }
         }
         catch (IOException | InterruptedException e) {
