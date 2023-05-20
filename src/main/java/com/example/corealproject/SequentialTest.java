@@ -1,35 +1,29 @@
 package com.example.corealproject;
 
-import HDD.RandAccess.RandomReadWriteImproved;
-import HDD.RandAccess.RandomReadWriteMain;
+import HDD.SeqWriteBench;
+import HDD.SeqWriteMain;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static javafx.geometry.Pos.*;
 import static javafx.scene.layout.BorderPane.setAlignment;
@@ -37,6 +31,8 @@ import static javafx.scene.layout.BorderPane.setAlignment;
 public class SequentialTest {
 
     public int size;
+
+    private static final String FILE_NAME = "ScoreHistoryHDDRandom.txt";
 
     public SequentialTest(int size) {
         System.out.println("size: " + size);
@@ -84,6 +80,10 @@ public class SequentialTest {
         results.setFont(tagFont);
         results.setFill(Color.WHITE);
 
+        SeqWriteBench seqBench = new SeqWriteBench();
+        SeqWriteMain seq = new SeqWriteMain();
+        AtomicReference<Double> score = new AtomicReference<>((double) 0);
+
 
         // Create the Start button
         Button startButton = new Button("Start");
@@ -93,23 +93,45 @@ public class SequentialTest {
             startButton.setDisable(true);
             backButton.setDisable(true);
             startButton.setText("Computing..");
-            RandomReadWriteImproved score = new RandomReadWriteImproved();
-            RandomReadWriteMain start = new RandomReadWriteMain();
-            double scor = start.startRandomReadWrite(nameText, size, "HDD - Seq");
-            System.out.println(scor);
-            results.setText(String.valueOf(scor));
+
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.seconds(2), event -> {
+                        score.set(seq.start(size));
+                    })
+            );
+            timeline.play();
+
 
 
             // Wait for 2 seconds and show the button again
-            Timeline timeline = new Timeline(
+            Timeline timeline1 = new Timeline(
                     new KeyFrame(Duration.seconds(2), event -> {
                         startButton.setDisable(false);
                         backButton.setDisable(false);
                         startButton.setText("Start again");
 
+                        results.setText(String.valueOf(score));
+
+                        try {
+                            FileWriter text = new FileWriter(FILE_NAME,true);
+                            LocalDateTime now = LocalDateTime.now();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            String formattedTime = now.format(formatter);
+                            try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+                                writer.write("HDD - Seq" + "," + nameText+ "," + formattedTime + "," + score + "," + size +"\n");
+                            } catch (IOException err) {
+                                err.printStackTrace();
+                            }
+                            text.close();
+                            System.out.println("Score posted!");
+                        } catch (IOException err) {
+                            System.out.println("Could not post score,error occured!");
+                            err.printStackTrace();
+                        }
+
                     })
             );
-            timeline.play();
+            timeline1.play();
             // Set the background color of the scene
 //            primaryStage.getScene().getRoot().setStyle("-fx-background-color: '#1e1e1e';");
         });
