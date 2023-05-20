@@ -243,6 +243,7 @@ public class Main extends Application {
 
             ScrollPane scrollPane = new ScrollPane(scoreTable);
             scrollPane.setFitToWidth(true);
+            scrollPane.setFitToHeight(true);
 
 //            VBox root = new VBox(header, subHeader, scrollPane);
 
@@ -273,7 +274,7 @@ public class Main extends Application {
 //            root.setSpacing(20);
             root.setStyle("-fx-padding: 20;");
 
-            Scene scoreScene = new Scene(root, 500, 420);
+            Scene scoreScene = new Scene(root, 1000, 1000);
             scoreStage.setScene(scoreScene);
             scoreStage.show();
         });

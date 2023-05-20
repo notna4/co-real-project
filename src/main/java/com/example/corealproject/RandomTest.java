@@ -19,6 +19,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static javafx.geometry.Pos.CENTER;
 import static javafx.geometry.Pos.CENTER_LEFT;
@@ -92,9 +93,16 @@ public class RandomTest {
             timeline1.play();
             RandomReadWriteImproved score = new RandomReadWriteImproved();
             RandomReadWriteMain start = new RandomReadWriteMain();
-            double scor = start.startRandomReadWrite(nameText, size, "HDD - Rnd");
-            System.out.println(scor);
-            results.setText(String.valueOf(scor));
+            AtomicReference<Double> scor = new AtomicReference<>((double) 0);
+
+            Timeline timeline0 = new Timeline(
+                    new KeyFrame(Duration.seconds(2), event -> {
+                        scor.set(start.startRandomReadWrite(nameText, size, "HDD - Rnd"));
+
+                    })
+            );
+            timeline0.play();
+
 
             // Wait for 2 seconds and show the button again
             Timeline timeline = new Timeline(
@@ -102,6 +110,9 @@ public class RandomTest {
                         startButton.setDisable(false);
                         backButton.setDisable(false);
                         startButton.setText("Start again");
+
+                        System.out.println(scor.get());
+                        results.setText(String.valueOf(scor.get()));
                     })
             );
             timeline.play();

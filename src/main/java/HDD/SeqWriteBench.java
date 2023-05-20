@@ -28,27 +28,27 @@ public class SeqWriteBench {
         this.filePath = filePath;
     }
 
-    public void setSize() {
+    public void setSize(int size) {
 
-        System.out.println("Select the file size(MB):");
+//        System.out.println("Select the file size(MB):");
 
-        try {
+//        try {
+//
+//            InputStreamReader inp = null;
+//            Scanner myscan = new Scanner(System.in);
+//
+//            System.out.println();
+//
+//            MB = myscan.nextInt();
+//
+//            System.out.println("Size requested: " + MB);
+//
+//        } catch (
+//                InputMismatchException e) {
+//            System.out.println("Invalid value!");
+//        }
 
-            InputStreamReader inp = null;
-            Scanner myscan = new Scanner(System.in);
-
-            System.out.println();
-
-            MB = myscan.nextInt();
-
-            System.out.println("Size requested: " + MB);
-
-        } catch (
-                InputMismatchException e) {
-            System.out.println("Invalid value!");
-        }
-
-        fileSize = 1024 * 1024 * MB;
+        fileSize = 1024 * 1024 * size;
     }
 
     public void createFile() {
@@ -139,11 +139,16 @@ public class SeqWriteBench {
         writeTime=sum/results.length;
     }
 
-    public void getScore()
+    public double getScore()
     {
         //score= ((double)(1/(TimeRead2*100/TimeRead1))*fileSize) +(int)TimeRead1; //Laoo formula
         score = (double) ((fileSize/1024*1024)/((double)writeTime/1000000000.0));
         System.out.println("The score is: "+score);
+        return score;
+    }
+
+    public double getterScore() {
+        return (double) ((fileSize/1024*1024)/((double)writeTime/1000000000.0));
     }
 
     public void postScore()
@@ -163,7 +168,7 @@ public class SeqWriteBench {
     {
         try{
             // Delete the file
-            //file.delete();
+            file.delete();
 
             System.out.println("Sequential write test completed successfully.");
         } catch(Exception e)
